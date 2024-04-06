@@ -1,0 +1,109 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<th:block th:fragment="navBiblio">
+
+    <nav class="sidebar sidebar-offcanvas" id="sidebar" >
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{dashboard}">
+                    <i class="bi bi-arrow-left-circle-fill menu-icon "></i>
+                    <span class="menu-title">Retour à l'ENT</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{gestionbibliotheque}">
+                    <i class="icon-grid menu-icon"></i>
+                    <span class="menu-title">Dashboard</span>
+                </a>
+            </li>
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" th:href="@{listelivresetu}">-->
+<!--                    <i class="icon-grid menu-icon"></i>-->
+<!--                    <span class="menu-title">look</span>-->
+<!--                </a>-->
+<!--            </li>-->
+
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#certss" aria-expanded="false" aria-controls="ui-basic"th:if="${session.authorithies[0].authority =='Admin' }">
+                    <i class="icon-layout menu-icon"></i>
+                    <span class="menu-title">Gestion des livres</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="certss">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" th:href="@{Addbook}">ajouter  des livres</a></li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{Listelivres}"> voir les livres</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#certs" aria-expanded="false" aria-controls="ui-basic"th:if="${session.authorithies[0].authority =='Admin' }">
+                    <i class="icon-layout menu-icon"></i>
+                    <span class="menu-title">Gestion des categories</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="certs">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" th:href="@{AddCat}">ajout de la categorie</a></li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{Listecategory}"> voir la categorie</a></li>
+                       </ul>
+                </div>
+            </li>
+
+            <li class="nav-item" >
+                <a class="nav-link" data-toggle="collapse" href="#cert" aria-expanded="false" aria-controls="ui-basic"th:if="${session.authorithies[0].authority =='Admin' }">
+                    <i class="bi bi-file-check-fill menu-icon"></i>
+                    <span class="menu-title" >Gestion des emplacements</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="cert">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item"> <a class="nav-link" th:href="@{Addplace}" th:if="${session.authorithies[0].authority =='Admin' }">ajouter l'emplacement</a></li>
+                        <li class="nav-item"> <a class="nav-link" th:href="@{Listeplace}">voir l'emplacement</a></li>
+                    </ul>
+                </div>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#certsss" aria-expanded="false" aria-controls="ui-basic"th:if="${session.authorithies[0].authority =='Admin' }">
+                    <i class="icon-file menu-icon"></i>
+                    <span class="menu-title">Gestion des emprunts</span>
+                    <i class="menu-arrow"></i>
+                </a>
+
+                    <div class="collapse" id="certsss">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"> <a class="nav-link" th:href="@{Viewemprunt}" th:if="${session.authorithies[0].authority =='Admin' }">voir les emprunts</a></li>
+                            <li class="nav-item"> <a class="nav-link" th:href="@{Emprunt}">valider l'emprunt</a></li>
+                        </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{Listelivresetu}" th:if="${session.authorithies[0].authority !='Admin' }">
+                    <i class="icon-file menu-icon"></i>
+                    <span class="menu-title">Bibliotheque</span>
+                </a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{Demande}" th:if="${session.authorithies[0].authority !='Admin' }">
+                    <i class="icon-file menu-icon"></i>
+                    <span class="menu-title">faire l'emprunt</span>
+                </a>
+
+            </li>
+
+
+        </ul>
+    </nav>
+    <!-- partial -->
+
+
+</th:block>
+
+</html>
